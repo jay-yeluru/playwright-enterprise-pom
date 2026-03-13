@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/pageManager.fixture');
+const { test, expect } = require('../fixtures/page-manager.fixture');
 const { CONDUIT, SMOKE, ARTICLE } = require('../constants/tags');
 
 test.describe(`Conduit: Authenticated Flow ${CONDUIT}`, () => {

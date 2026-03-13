@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/authPageManager.fixture');
+const { test, expect } = require('../fixtures/auth-page-manager.fixture');
 
 test.describe('Dashboard Tests (Authenticated)', { tag: '@auth' }, () => {
     test('should display welcome message on dashboard @smoke', async ({ app }) => {

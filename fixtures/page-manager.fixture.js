@@ -1,8 +1,8 @@
 const base = require('@playwright/test');
-const { POManager } = require('../pages/POManager');
-const { UtilsManager } = require('../utils/UtilsManager');
+const { POManager } = require('../pages/po-manager');
+const { UtilsManager } = require('../utils/utils-manager');
 const { Helpers } = require('../utils/helpers');
-const { dataManager } = require('../utils/DataManager');
+const { dataManager } = require('../utils/data-manager');
 
 exports.test = base.test.extend({
     // Provides the core page fixture with environment setup

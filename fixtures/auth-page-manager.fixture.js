@@ -1,5 +1,5 @@
-const base = require('./authPage.fixture');
-const { POManager } = require('../pages/POManager');
+const base = require('./auth-page.fixture');
+const { POManager } = require('../pages/po-manager');
 const { Helpers } = require('../utils/helpers');
 
 exports.test = base.test.extend({

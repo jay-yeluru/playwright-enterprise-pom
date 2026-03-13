@@ -1,4 +1,4 @@
-const { dataManager } = require('./DataManager');
+const { dataManager } = require('./data-manager');
 const { step } = require('allure-js-commons');
 
 /**

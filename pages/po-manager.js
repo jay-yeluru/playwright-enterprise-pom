@@ -1,7 +1,7 @@
-const { LoginPage } = require('./LoginPage');
-const { DashboardPage } = require('./DashboardPage');
-const { ArticlePage } = require('./ArticlePage');
-const { SignUpPage } = require('./SignUpPage');
+const { LoginPage } = require('./login.page');
+const { DashboardPage } = require('./dashboard.page');
+const { ArticlePage } = require('./article.page');
+const { SignUpPage } = require('./sign-up.page');
 
 class POManager {
     /**

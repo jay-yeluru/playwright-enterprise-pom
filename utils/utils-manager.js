@@ -1,5 +1,5 @@
-const { ApiUtils } = require('./apiUtils/ApiUtils');
-const { AuthUtils } = require('./apiUtils/authUtils');
+const { ApiUtils } = require('./api-utils/api-utils');
+const { AuthUtils } = require('./api-utils/auth-utils');
 
 /**
  * UtilsManager acts as a central registry for all utility classes.

@@ -1,5 +1,5 @@
-const { test: baseTest } = require('./pageManager.fixture');
-const { UtilsManager } = require('../utils/UtilsManager');
+const { test: baseTest } = require('./page-manager.fixture');
+const { UtilsManager } = require('../utils/utils-manager');
 const config = require('../utils/config');
 
 exports.test = baseTest.extend({

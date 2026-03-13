@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/pageManager.fixture');
+const { test, expect } = require('../fixtures/page-manager.fixture');
 
 test.describe('Login Tests (No Auth)', { tag: '@noauth' }, () => {
     test('should load login page @smoke', async ({ app }) => {

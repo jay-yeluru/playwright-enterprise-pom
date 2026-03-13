@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/pageManager.fixture');
+const { test, expect } = require('../fixtures/page-manager.fixture');
 
 test.describe('Conduit: Account Setup', () => {
     // Generate random user details for the demo

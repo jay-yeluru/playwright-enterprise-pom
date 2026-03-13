@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/pageManager.fixture');
+const { test, expect } = require('../fixtures/page-manager.fixture');
 const { faker } = require('@faker-js/faker');
 
 test.describe('Conduit: Authenticated Session', () => {

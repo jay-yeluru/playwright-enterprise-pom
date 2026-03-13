@@ -1,4 +1,4 @@
-const { ApiUtils } = require('./ApiUtils');
+const { ApiUtils } = require('./api-utils');
 const config = require('../config');
 const { step } = require('allure-js-commons');
 
