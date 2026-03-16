@@ -76,15 +76,6 @@ jobs:
         pattern: playwright-report-*
         merge-multiple: true
 
-    - name: Merge Allure Results
-      env:
-        BASE_URL: "${{ secrets.BASE_URL || 'https://demo.realworld.show' }}"
-        TEST_ENV: "${{ secrets.TEST_ENV || 'stage' }}"
-      run: |
-        mkdir -p reports/allure-results
-        cp -r all-reports/allure-results/* reports/allure-results/ || true
-        node utils/generate-allure-env.js
-
     - name: Get Allure history
       uses: actions/checkout@v4
       if: always()
@@ -92,6 +83,17 @@ jobs:
       with:
         ref: gh-pages
         path: allure-history
+
+    - name: Merge Allure Results
+      env:
+        BASE_URL: "${{ secrets.BASE_URL || 'https://demo.realworld.show' }}"
+        TEST_ENV: "${{ secrets.TEST_ENV || 'stage' }}"
+      run: |
+        mkdir -p reports/allure-results
+        cp -r all-reports/allure-results/* reports/allure-results/ || true
+        # Copy history from previous run to enable trends
+        cp -r allure-history/history reports/allure-results/ || true
+        node utils/generate-allure-env.js
 
     - name: Allure Report Action
       uses: simple-elf/allure-report-action@master
