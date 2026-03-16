@@ -1,0 +1,6 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","216","should return 404 for non-existent endpoint","desktop","Mon Mar 16 17:02:59 UTC 2026","passed","Mon Mar 16 17:02:59 UTC 2026","Conduit API: Public Endpoints @conduit @api","api/conduit-api.spec.js","",""
+"","248","should return 401 for login with invalid password","desktop","Mon Mar 16 17:02:59 UTC 2026","passed","Mon Mar 16 17:03:00 UTC 2026","Conduit API: Authentication @conduit @api","api/conduit-auth.spec.js","",""
+"","941","should fetch articles from global feed","desktop","Mon Mar 16 17:02:55 UTC 2026","passed","Mon Mar 16 17:02:56 UTC 2026","Conduit API: Public Endpoints @conduit @api","api/conduit-api.spec.js","",""
+"","931","should fetch all tags @smoke","desktop","Mon Mar 16 17:02:55 UTC 2026","passed","Mon Mar 16 17:02:56 UTC 2026","Conduit API: Public Endpoints @conduit @api","api/conduit-api.spec.js","",""
+"","395","should login successfully with valid credentials @smoke","desktop","Mon Mar 16 17:02:59 UTC 2026","passed","Mon Mar 16 17:03:00 UTC 2026","Conduit API: Authentication @conduit @api","api/conduit-auth.spec.js","",""
