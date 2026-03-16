@@ -1,0 +1,3 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","20154","should switch between Global Feed and Your Feed tabs @regression @dashboard","mobile","Mon Mar 16 17:15:35 UTC 2026","passed","Mon Mar 16 17:15:55 UTC 2026","Dashboard Tests (Authenticated) @conduit @dashboard @auth","e2e/dashboard/dashboard.spec.js","",""
+"","19904","should verify feed tabs are visible on dashboard @smoke","mobile","Mon Mar 16 17:15:35 UTC 2026","passed","Mon Mar 16 17:15:55 UTC 2026","Dashboard Tests (Authenticated) @conduit @dashboard @auth","e2e/dashboard/dashboard.spec.js","",""
