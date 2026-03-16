@@ -1,0 +1,7 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"","1093","should load login page @smoke","desktop","Mon Mar 16 16:59:15 UTC 2026","passed","Mon Mar 16 16:59:16 UTC 2026","Login Tests (No Auth)","e2e/auth/login.spec.js","",""
+"","1207","should login successfully with valid credentials @smoke","desktop","Mon Mar 16 16:59:11 UTC 2026","passed","Mon Mar 16 16:59:12 UTC 2026","Conduit API: Authentication @conduit @api","api/conduit-auth.spec.js","",""
+"","1099","should fetch all tags @smoke","desktop","Mon Mar 16 16:59:11 UTC 2026","passed","Mon Mar 16 16:59:12 UTC 2026","Conduit API: Public Endpoints @conduit @api","api/conduit-api.spec.js","",""
+"","2218","should access dashboard with dynamically created session @smoke","desktop","Mon Mar 16 16:59:13 UTC 2026","passed","Mon Mar 16 16:59:15 UTC 2026","Conduit: Dynamic Auth Session","e2e/auth/conduit-dynamic-session.spec.js","",""
+"","3541","should register, login and create an article @smoke @article","desktop","Mon Mar 16 16:59:13 UTC 2026","passed","Mon Mar 16 16:59:16 UTC 2026","Conduit: Authenticated Flow @conduit","e2e/articles/conduit-article.spec.js","",""
+"","2982","should verify feed tabs are visible on dashboard @smoke","desktop","Mon Mar 16 16:59:16 UTC 2026","passed","Mon Mar 16 16:59:19 UTC 2026","Dashboard Tests (Authenticated)","e2e/dashboard/dashboard.spec.js","",""
