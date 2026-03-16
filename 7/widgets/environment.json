@@ -1,0 +1,1 @@
+[{"values":["STAGE"],"name":"Environment"},{"values":["https://demo.realworld.show"],"name":"BaseURL"},{"values":["staging"],"name":"Environment_Type"},{"values":["linux"],"name":"Platform"},{"values":["v20.20.0"],"name":"Node_Version"},{"values":["GitHub Actions"],"name":"Executor"}]
