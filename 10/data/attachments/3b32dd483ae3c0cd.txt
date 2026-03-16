@@ -1,0 +1,4 @@
+
+Registering dynamic user: user_22640
+[AUTH]: Successfully authenticated via API for user_22640@example.com
+✅ Verified authenticated session for: user_22640
