@@ -46,7 +46,7 @@ exports.test = base.test.extend({
     },
 
     // Provides the centralized Data Manager
-    data: async ({}, use) => {
+    data: async ({ }, use) => {
         await use(dataManager);
     },
 });

@@ -9,7 +9,7 @@ class AuthUtils extends ApiUtils {
 
     async login(email, password) {
         return await step(`API Login for ${email}`, async () => {
-            const response = await this.postRequest('/api/users/login', {
+            const response = await this.postRequest(`${config.apiBaseUrl}/users/login`, {
                 user: {
                     email,
                     password,
@@ -25,11 +25,11 @@ class AuthUtils extends ApiUtils {
                     storageState: {
                         cookies: [],
                         origins: [
-                            {
-                                origin: config.baseUrl,
+                        {
+                            origin: config.baseUrl,
                                 localStorage: [
                                     {
-                                        name: 'jwt',
+                                        name: 'jwtToken',
                                         value: data.user.token,
                                     },
                                 ],
@@ -39,6 +39,20 @@ class AuthUtils extends ApiUtils {
                 };
             }
             return null;
+        });
+    }
+
+    async register(username, email, password) {
+        return await step(`API Register for ${username}`, async () => {
+            const response = await this.postRequest(`${config.apiBaseUrl}/users`, {
+                user: {
+                    username,
+                    email,
+                    password,
+                },
+            });
+
+            return response;
         });
     }
 }

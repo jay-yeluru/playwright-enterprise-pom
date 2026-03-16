@@ -1,4 +1,4 @@
-const { test, expect } = require('../fixtures/page-manager.fixture');
+const { test } = require('../../../fixtures/page-manager.fixture');
 
 test.describe('Conduit: Account Setup', () => {
     // Generate random user details for the demo
@@ -14,7 +14,7 @@ test.describe('Conduit: Account Setup', () => {
         await signUpPage.register(username, email, password);
 
         // After registration, it usually redirects to the home page
-        await expect(app.page).toHaveURL('https://demo.realworld.show/');
+        await signUpPage.assertUrl('https://demo.realworld.show/');
 
         console.log('\n--- NEW USER REGISTERED ---');
         console.log(`Username: ${username}`);

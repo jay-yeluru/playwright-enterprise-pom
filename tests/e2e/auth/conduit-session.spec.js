@@ -1,7 +1,7 @@
-const { test, expect } = require('../fixtures/auth-page-manager.fixture');
+const { test } = require('../../../fixtures/auth-page-manager.fixture');
 const { faker } = require('@faker-js/faker');
 
-const { dataManager } = require('../utils/data-manager');
+const { dataManager } = require('../../../utils/data-manager');
 
 test.describe('Conduit: Authenticated Session', () => {
     // EXPLICIT CONTROL: We pull the specific user from data/{env}/auth.js and "send" it to the fixture
@@ -24,7 +24,7 @@ test.describe('Conduit: Authenticated Session', () => {
         const articlePage = app.getArticlePage();
 
         // 1. Verify we are logged in (New Article link should be visible)
-        await dashboardPage.assertLoaded(expect);
+        await dashboardPage.assertLoaded();
 
         // 2. Create Article
         await articlePage.openEditor();
@@ -37,7 +37,7 @@ test.describe('Conduit: Authenticated Session', () => {
         await articlePage.createArticle(title, description, body, tags);
 
         // 3. Verify
-        await articlePage.assertArticleCreated(expect, title);
+        await articlePage.assertArticleCreated(title);
 
         console.log(`\n✅ Article created via session: ${title}\n`);
     });

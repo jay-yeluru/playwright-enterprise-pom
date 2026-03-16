@@ -1,5 +1,6 @@
-const { Helpers } = require('../utils/helpers');
+const { Helpers } = require('../../utils/helpers');
 const { step } = require('allure-js-commons');
+const { expect } = require('@playwright/test');
 
 class SignUpPage extends Helpers {
     constructor(page) {
@@ -24,6 +25,19 @@ class SignUpPage extends Helpers {
             await this.safeFill(this.emailInput, email, 'email');
             await this.safeFill(this.passwordInput, password, 'password');
             await this.safeClick(this.signUpButton, 'sign up button');
+        });
+    }
+
+    async assertLoaded() {
+        await step('Assert Sign Up Page Loaded', async () => {
+            await expect(this.usernameInput).toBeVisible();
+            await expect(this.signUpButton).toBeVisible();
+        });
+    }
+
+    async assertUrl(regex) {
+        await step(`Assert Sign Up URL matches: ${regex}`, async () => {
+            await expect(this.page).toHaveURL(regex);
         });
     }
 }

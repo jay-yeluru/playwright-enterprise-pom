@@ -1,5 +1,6 @@
-const { Helpers } = require('../utils/helpers');
+const { Helpers } = require('../../utils/helpers');
 const { step } = require('allure-js-commons');
+const { expect } = require('@playwright/test');
 
 class ArticlePage extends Helpers {
     constructor(page) {
@@ -22,6 +23,13 @@ class ArticlePage extends Helpers {
         });
     }
 
+    async assertEditorVisible() {
+        await step('Assert Article Editor is Visible', async () => {
+            await expect(this.titleInput).toBeVisible();
+            await expect(this.publishButton).toBeVisible();
+        });
+    }
+
     async createArticle(title, description, body, tags = []) {
         await step(`Create article: ${title}`, async () => {
             await this.safeFill(this.titleInput, title, 'article title');
@@ -37,9 +45,15 @@ class ArticlePage extends Helpers {
         });
     }
 
-    async assertArticleCreated(expect, title) {
+    async assertArticleCreated(title) {
         await step(`Verify article: ${title} is created`, async () => {
             await expect(this.articleTitle).toHaveText(title);
+        });
+    }
+
+    async assertUrl(regex) {
+        await step(`Assert Article URL matches: ${regex}`, async () => {
+            await expect(this.page).toHaveURL(regex);
         });
     }
 }

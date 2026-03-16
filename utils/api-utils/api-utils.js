@@ -9,7 +9,6 @@ class ApiUtils {
 
     /**
      * Injects environment-specific cookies into the browser context.
-     * Logic moved from env.js for better encapsulation.
      */
     async addEnvironmentCookies() {
         if (!this.context) {
@@ -32,7 +31,6 @@ class ApiUtils {
 
     /**
      * Returns standard framework headers.
-     * Logic moved from env.js.
      */
     getFrameworkHeaders() {
         return {
@@ -43,10 +41,6 @@ class ApiUtils {
 
     /**
      * Adds custom headers to the context.
-     * Supports:
-     * 1. JSON string: '{"X-Header": "Value"}'
-     * 2. Formatted string: 'Key1:Value1, Key2:Value2'
-     * 3. Native object: { 'X-Header': 'Value' }
      */
     async addHeaders(customHeaders = '') {
         if (!this.context) throw new Error('Context is required to set extra headers');
@@ -57,10 +51,8 @@ class ApiUtils {
         if (customHeaders) {
             if (typeof customHeaders === 'string') {
                 try {
-                    // Try parsing as JSON first
                     headerObj = JSON.parse(customHeaders);
                 } catch (_e) {
-                    // Fallback: Parse as 'Key:Value, Key:Value' string
                     customHeaders.split(',').forEach((pair) => {
                         const [key, value] = pair.split(':');
                         if (key && value) {
@@ -81,13 +73,9 @@ class ApiUtils {
                 ...frameworkHeaders,
                 ...headerObj,
             };
-            if (config.testEnv !== 'prod' && Object.keys(headerObj).length > 0) {
-                console.log('adding custom headers: ', headerObj, 'to URL: ', request.url());
-            }
             await route.continue({ headers });
         });
 
-        // Ensure headers are also applied to direct API calls (this.request)
         await this.context.setExtraHTTPHeaders({
             ...frameworkHeaders,
             ...headerObj,
@@ -95,8 +83,7 @@ class ApiUtils {
     }
 
     /**
-     * Sets up a listener for API errors (non-2xx/3xx responses)
-     * @returns {Array} List of captured errors
+     * Sets up a listener for API errors
      */
     async requestErrorListener() {
         if (!this.page) throw new Error('Page is required to attach response listener');
@@ -111,7 +98,6 @@ class ApiUtils {
                 try {
                     body = await response.text();
                 } catch (_e) {
-                    // Body might not be available
                     body = '<unreadable>';
                 }
                 apiErrors.push({ status, method, url, body });
@@ -127,7 +113,25 @@ class ApiUtils {
         });
     }
 
-    //verify response
+    async getRequest(url, options = {}) {
+        return await this.request.get(url, {
+            ...options,
+        });
+    }
+
+    async putRequest(url, data, options = {}) {
+        return await this.request.put(url, {
+            data,
+            ...options,
+        });
+    }
+
+    async deleteRequest(url, options = {}) {
+        return await this.request.delete(url, {
+            ...options,
+        });
+    }
+
     async verifyResponse(response, responseName = '', _requestBody = null) {
         if (response.ok()) {
             return response.json();
@@ -139,9 +143,6 @@ class ApiUtils {
             responseBody = await response.json();
         } catch (_e) {
             responseBody = await response.text();
-        }
-        if (_requestBody) {
-            console.error(`request Body: ${JSON.stringify(_requestBody)}`);
         }
         throw new Error(
             `API call Failed: ${responseName}: ${status} ${url} ${JSON.stringify(responseBody)}`

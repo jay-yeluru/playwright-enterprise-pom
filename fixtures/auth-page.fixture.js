@@ -1,6 +1,8 @@
-const { test: baseTest } = require('./page-manager.fixture');
+const { test: baseTest, expect } = require('./page-manager.fixture');
 const { UtilsManager } = require('../utils/utils-manager');
 const config = require('../utils/config');
+
+exports.expect = expect;
 
 exports.test = baseTest.extend({
     // Specialized credentials fixture for easier override in tests
@@ -14,6 +16,11 @@ exports.test = baseTest.extend({
 
         try {
             sessionData = (await umInit.authUtils.login(creds.username, creds.password)) || {};
+            if (sessionData.token) {
+                console.log(`[AUTH]: Successfully authenticated via API for ${creds.username}`);
+            } else {
+                console.warn(`[AUTH]: API Login returned no session data for ${creds.username}`);
+            }
         } catch (e) {
             console.warn(
                 `[WARN]: API Auth failed: ${e.message}. Testing as unauthenticated or with default state.`

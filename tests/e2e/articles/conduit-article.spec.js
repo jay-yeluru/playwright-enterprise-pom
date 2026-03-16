@@ -1,8 +1,8 @@
-const { test, expect } = require('../fixtures/page-manager.fixture');
-const { CONDUIT, SMOKE, ARTICLE } = require('../constants/tags');
+const { test } = require('../../../fixtures/page-manager.fixture');
+const { articleTags } = require('../../../constants/tags');
 
-test.describe(`Conduit: Authenticated Flow ${CONDUIT}`, () => {
-    test(`should register, login and create an article ${SMOKE} ${ARTICLE}`, async ({
+test.describe(`Conduit: Authenticated Flow ${articleTags.CONDUIT}`, () => {
+    test(`should register, login and create an article ${articleTags.SMOKE} ${articleTags.ARTICLE}`, async ({
         app,
         data,
     }) => {
@@ -30,7 +30,7 @@ test.describe(`Conduit: Authenticated Flow ${CONDUIT}`, () => {
         );
 
         // 3. Verify Article Details
-        await articlePage.assertArticleCreated(expect, article.title);
+        await articlePage.assertArticleCreated(article.title);
 
         console.log(`\n✅ Flow Completed Successfully!`);
         console.log(`User: ${user.username} | Article: ${article.title}\n`);
