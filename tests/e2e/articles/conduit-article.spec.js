@@ -1,7 +1,7 @@
 const { test } = require('../../../fixtures/page-manager.fixture');
 const { articleTags } = require('../../../constants/tags');
 
-test.describe(`Conduit: Authenticated Flow ${articleTags.CONDUIT}`, () => {
+test.describe(`Conduit: Authenticated Flow ${articleTags.CONDUIT} ${articleTags.ARTICLE} ${articleTags.AUTH}`, () => {
     test(`should register, login and create an article ${articleTags.SMOKE} ${articleTags.ARTICLE}`, async ({
         app,
         data,

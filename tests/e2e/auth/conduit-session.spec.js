@@ -1,9 +1,9 @@
 const { test } = require('../../../fixtures/auth-page-manager.fixture');
 const { faker } = require('@faker-js/faker');
-
+const { articleTags, REGRESSION } = require('../../../constants/tags');
 const { dataManager } = require('../../../utils/data-manager');
 
-test.describe('Conduit: Authenticated Session', () => {
+test.describe(`Conduit: Authenticated Session ${articleTags.CONDUIT} ${articleTags.AUTH}`, () => {
     // EXPLICIT CONTROL: We pull the specific user from data/{env}/auth.js and "send" it to the fixture
     const user = dataManager.static('auth').user_login;
     
@@ -19,7 +19,7 @@ test.describe('Conduit: Authenticated Session', () => {
         await app.getDashboardPage().open();
     });
 
-    test('should create a new article using existing session', async ({ app, page }) => {
+    test(`should create a new article using existing session ${REGRESSION} ${articleTags.ARTICLE}`, async ({ app, page }) => {
         const dashboardPage = app.getDashboardPage();
         const articlePage = app.getArticlePage();
 

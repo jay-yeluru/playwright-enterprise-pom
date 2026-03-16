@@ -1,7 +1,7 @@
 const { test } = require('../../../fixtures/auth-page-manager.fixture');
-const { dashboardTags } = require('../../../constants/tags');
+const { dashboardTags, REGRESSION } = require('../../../constants/tags');
 
-test.describe('Conduit: Dynamic Auth Session', { tag: [dashboardTags.AUTH] }, () => {
+test.describe(`Conduit: Dynamic Auth Session ${dashboardTags.CONDUIT} ${dashboardTags.AUTH}`, () => {
     
     // We can generate random credentials for EACH test run to avoid data collisions
     const randomNum = Math.floor(Math.random() * 100000);
@@ -35,7 +35,7 @@ test.describe('Conduit: Dynamic Auth Session', { tag: [dashboardTags.AUTH] }, ()
         }
     });
 
-    test('should access dashboard with dynamically created session @smoke', async ({ app }) => {
+    test(`should access dashboard with dynamically created session ${dashboardTags.SMOKE}`, async ({ app }) => {
         const dashboardPage = app.getDashboardPage();
 
         // 1. Open home page - should be automatically logged in by the fixture
@@ -49,7 +49,7 @@ test.describe('Conduit: Dynamic Auth Session', { tag: [dashboardTags.AUTH] }, ()
         console.log(`✅ Verified authenticated session for: ${dynamicUser.username}`);
     });
 
-    test('should be able to navigate to settings while authenticated', async ({ app }) => {
+    test(`should be able to navigate to settings while authenticated ${REGRESSION}`, async ({ app }) => {
         const dashboardPage = app.getDashboardPage();
         
         await dashboardPage.open();

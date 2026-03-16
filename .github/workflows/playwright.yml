@@ -38,9 +38,9 @@ jobs:
     - name: Run Playwright tests
       run: npx playwright test --shard=${{ matrix.shard }}/${{ strategy.job-total }}
       env:
-        BASE_URL: ${{ secrets.BASE_URL || 'https://demo.realworld.show' }}
-        TEST_USER: ${{ secrets.TEST_USER }}
-        TEST_PASS: ${{ secrets.TEST_PASS }}
+        BASE_URL: "${{ secrets.BASE_URL || 'https://demo.realworld.show' }}"
+        TEST_USER: "${{ secrets.TEST_USER }}"
+        TEST_PASS: "${{ secrets.TEST_PASS }}"
         
     - name: Upload Playwright report to artifacts
       if: always()
@@ -77,13 +77,13 @@ jobs:
         merge-multiple: true
 
     - name: Merge Allure Results
+      env:
+        BASE_URL: "${{ secrets.BASE_URL || 'https://demo.realworld.show' }}"
+        TEST_ENV: "${{ secrets.TEST_ENV || 'stage' }}"
       run: |
         mkdir -p reports/allure-results
         cp -r all-reports/allure-results/* reports/allure-results/ || true
         node utils/generate-allure-env.js
-      env:
-        BASE_URL: ${{ secrets.BASE_URL || 'https://demo.realworld.show' }}
-        TEST_ENV: ${{ secrets.TEST_ENV || 'stage' }}
 
     - name: Get Allure history
       uses: actions/checkout@v4

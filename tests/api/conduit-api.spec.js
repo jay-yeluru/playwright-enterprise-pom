@@ -1,5 +1,5 @@
 const { test } = require('../../fixtures/page-manager.fixture');
-const { apiTags } = require('../../constants/tags');
+const { apiTags, REGRESSION } = require('../../constants/tags');
 const config = require('../../utils/config');
 
 test.describe(`Conduit API: Public Endpoints ${apiTags.CONDUIT} ${apiTags.API}`, () => {
@@ -18,7 +18,7 @@ test.describe(`Conduit API: Public Endpoints ${apiTags.CONDUIT} ${apiTags.API}`,
         console.log(`Retrieved ${body.tags.length} tags`);
     });
 
-    test(`should fetch articles from global feed`, async ({ app, utils }) => {
+    test(`should fetch articles from global feed ${REGRESSION} ${apiTags.API}`, async ({ app, utils }) => {
         const apiUtils = utils.apiUtils;
         const conduitApi = app.getConduitApi();
         
@@ -40,7 +40,7 @@ test.describe(`Conduit API: Public Endpoints ${apiTags.CONDUIT} ${apiTags.API}`,
         }
     });
 
-    test(`should return 404 for non-existent endpoint`, async ({ app, utils }) => {
+    test(`should return 404 for non-existent endpoint ${REGRESSION} ${apiTags.API}`, async ({ app, utils }) => {
         const apiUtils = utils.apiUtils;
         const conduitApi = app.getConduitApi();
         

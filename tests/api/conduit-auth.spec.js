@@ -1,10 +1,10 @@
 const { test } = require('../../fixtures/page-manager.fixture');
-const { apiTags } = require('../../constants/tags');
+const { apiTags, REGRESSION } = require('../../constants/tags');
 const config = require('../../utils/config');
 
 test.describe(`Conduit API: Authentication ${apiTags.CONDUIT} ${apiTags.API}`, () => {
 
-    test('should login successfully with valid credentials @smoke', async ({ app, utils, data }) => {
+    test(`should login successfully with valid credentials ${apiTags.SMOKE} ${apiTags.AUTH}`, async ({ app, utils, data }) => {
         const authUtils = utils.authUtils;
         const apiUtils = utils.apiUtils;
         const conduitApi = app.getConduitApi();
@@ -34,7 +34,7 @@ test.describe(`Conduit API: Authentication ${apiTags.CONDUIT} ${apiTags.API}`, (
         console.log(`Successfully logged in as: ${loginBody.user.username}`);
     });
 
-    test('should return 401 for login with invalid password', async ({ app, utils, data }) => {
+    test(`should return 401 for login with invalid password ${REGRESSION} ${apiTags.AUTH}`, async ({ app, utils, data }) => {
         const apiUtils = utils.apiUtils;
         const conduitApi = app.getConduitApi();
         const user = data.createUser();

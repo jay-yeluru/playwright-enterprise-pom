@@ -117,9 +117,9 @@ jobs:
             --shard=${{ matrix.shardIndex }}/${{ github.event.inputs.shards }} \
             --workers=${{ github.event.inputs.workers }}
         env:
-          BASE_URL: ${{ secrets.BASE_URL }}
-          TEST_USER: ${{ secrets.TEST_USER }}
-          TEST_PASS: ${{ secrets.TEST_PASS }}
+          BASE_URL: "${{ secrets.BASE_URL }}"
+          TEST_USER: "${{ secrets.TEST_USER }}"
+          TEST_PASS: "${{ secrets.TEST_PASS }}"
 
       - name: Upload Playwright report
         if: always()
@@ -157,13 +157,13 @@ jobs:
           merge-multiple: true
 
       - name: Merge Allure Results
+        env:
+          BASE_URL: "${{ secrets.BASE_URL || 'https://demo.realworld.show' }}"
+          TEST_ENV: "${{ github.event.inputs.test_env }}"
         run: |
           mkdir -p reports/allure-results
           cp -r all-reports/allure-results/* reports/allure-results/ || true
           node utils/generate-allure-env.js
-        env:
-          BASE_URL: ${{ secrets.BASE_URL || 'https://demo.realworld.show' }}
-          TEST_ENV: ${{ github.event.inputs.test_env }}
 
       - name: Get Allure history
         uses: actions/checkout@v4

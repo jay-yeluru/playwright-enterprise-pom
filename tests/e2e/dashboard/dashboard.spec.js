@@ -1,7 +1,7 @@
 const { test } = require('../../../fixtures/page-manager.fixture');
-const { dashboardTags } = require('../../../constants/tags');
+const { dashboardTags, REGRESSION } = require('../../../constants/tags');
 
-test.describe('Dashboard Tests (Authenticated)', { tag: [dashboardTags.AUTH, dashboardTags.CONDUIT] }, () => {
+test.describe(`Dashboard Tests (Authenticated) ${dashboardTags.CONDUIT} ${dashboardTags.DASHBOARD} ${dashboardTags.AUTH}`, () => {
     test.beforeEach(async ({ app, data }) => {
         const signUpPage = app.getSignUpPage();
         const user = data.createUser();
@@ -18,7 +18,7 @@ test.describe('Dashboard Tests (Authenticated)', { tag: [dashboardTags.AUTH, das
         await dashboardPage.assertFeedTabsVisible();
     });
 
-    test('should switch between Global Feed and Your Feed tabs', async ({ app }) => {
+    test(`should switch between Global Feed and Your Feed tabs ${REGRESSION} ${dashboardTags.DASHBOARD}`, async ({ app }) => {
         const dashboardPage = app.getDashboardPage();
 
         // 1. Initial state (already registered in beforeEach)
