@@ -14,7 +14,7 @@
 
 Playwright Enterprise POM is more than just a test suite—it's a production-ready engineering solution for web automation. Built on the **Conduit RealWorld Demo**, it demonstrates advanced patterns for synchronization, session management, and environment-agnostic data sourcing.
 
-[Technical Stack](#-tech-stack) • [Architecture](#-architecture) • [Env Strategy](#-environment--data-strategy) • [Quick Start](#-installation)
+[Technical Stack](#technical-stack) • [Architecture](#architecture) • [Env Strategy](#environment--data-strategy) • [Quick Start](#installation--usage)
 
 </div>
 
@@ -79,12 +79,18 @@ npm run allure:generate && npm run allure:open
 
 ## 🚀 Installation & Usage
 
+### Prerequisites
+
+- **Node.js**: `v20.0.0` or higher
+- **npm**: (comes with Node.js)
+
 <details>
 <summary><b>1. First-time Setup</b></summary>
 
 ```bash
 # Clone and install
 git clone https://github.com/jay-yeluru/playwright-enterprise-pom.git
+cd playwright-enterprise-pom
 npm install
 npm run install:browsers
 
