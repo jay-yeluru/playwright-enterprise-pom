@@ -1,0 +1,5 @@
+
+⚠️ API Errors detected during the failed test ⚠️
+	[401] POST -> https://api.realworld.show/api/articles
+	Response Body Snippet: {"errors":{"token":["is missing"]}}
+	---

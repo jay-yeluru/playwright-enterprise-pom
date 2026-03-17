@@ -1,0 +1,7 @@
+
+--- NEW USER REGISTERED ---
+Username: testuser_6573
+Email: testuser_6573@example.com
+Password: Password123!
+---------------------------
+
