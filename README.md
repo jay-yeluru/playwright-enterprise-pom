@@ -31,6 +31,7 @@ Playwright Enterprise POM is more than just a test suite—it's a production-rea
 *   **Data Generation**: [@faker-js/faker](https://fakerjs.dev/)
 *   **CI/CD**: GitHub Actions (Sharded Execution)
 
+    [Live Allure Report](https://jay-yeluru.github.io/playwright-enterprise-pom/)
 ---
 
 ## 🏢 Architecture
