@@ -5,6 +5,7 @@
 # 🎭 Playwright Enterprise POM
 ### *Scalable, Resilient, and Assertion-Centric Automation*
 
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
 [![Playwright](https://img.shields.io/badge/Playwright-1.58.x-2EAD33?style=for-the-badge&logo=playwright)](https://playwright.dev/)
 [![Allure 3](https://img.shields.io/badge/Allure_3-Reporting-FF69B4?style=for-the-badge&logo=allure)](https://allurereport.org/)
 [![GitHub Actions](https://img.shields.io/badge/GitHub_Actions-Automation-2088FF?style=for-the-badge&logo=github-actions)](https://github.com/features/actions)
@@ -23,8 +24,9 @@ Playwright Enterprise POM is more than just a test suite—it's a production-rea
 ## ⚡ Technical Stack
 
 *   **Core**: [Playwright](https://playwright.dev/) (Chromium, Firefox, WebKit)
-*   **Language**: JavaScript (ES6+)
+*   **Language**: **TypeScript** (ES Modules)
 *   **Reporting**: [Allure 3](https://allurereport.org/) + Playwright HTML
+*   **Execution**: [tsx](https://github.com/privatenumber/tsx) (Modern TypeScript Runtime)
 *   **Design Pattern**: Page Object Model (POM) + Service Object Pattern (API)
 *   **Data Generation**: [@faker-js/faker](https://fakerjs.dev/)
 *   **CI/CD**: GitHub Actions (Sharded Execution)
@@ -144,13 +146,13 @@ The GitHub Actions pipeline (`playwright.yml`) automates:
 
 ## 📂 Project Blueprint
 
--   📂 `pages/ui/` — UI Page Objects (Locators + Self-Assertions).
--   📂 `pages/api/` — API Service Objects (Validation Logic).
--   📂 `fixtures/` — Custom Fixtures (Dependency Injection).
--   📂 `data/` — Env-specific JSONs & Faker Generators.
--   📂 `utils/` — API Clients, Config Handlers, and Helpers.
--   📂 `tests/e2e/` — Functional E2E specs grouped by module (`auth`, `articles`, `dashboard`).
--   📂 `tests/api/` — Service-level validation specs.
+-   📂 `pages/ui/` — UI Page Objects (Locators + Self-Assertions) `.ts`.
+-   📂 `pages/api/` — API Service Objects (Validation Logic) `.ts`.
+-   📂 `fixtures/` — Custom Fixtures (Dependency Injection) `.ts`.
+-   📂 `data/` — Env-specific TS files & Dynamic Loaders.
+-   📂 `utils/` — API Clients, Config Handlers, and Helpers `.ts`.
+-   📂 `tests/e2e/` — Functional E2E specs (`.spec.ts`) grouped by module.
+-   📂 `tests/api/` — Service-level validation specs (`.spec.ts`).
 
 ---
 
