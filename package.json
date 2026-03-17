@@ -15,7 +15,7 @@
         "test:prod": "TEST_ENV=prod npx playwright test",
         "test:headed": "npx playwright test --headed",
         "test:report": "npx playwright show-report reports/html-report",
-        "allure:generate": "node utils/generate-allure-env.js && rm -rf reports/allure-report && npx allure generate reports/allure-results --output reports/allure-report",
+        "allure:generate": "npx tsx utils/generate-allure-env.ts && rm -rf reports/allure-report && npx allure generate reports/allure-results --output reports/allure-report",
         "allure:open": "npx allure open reports/allure-report",
         "allure:clear": "rm -rf reports/allure-results reports/allure-report",
         "report:clear": "rm -rf reports/",
@@ -37,7 +37,7 @@
     ],
     "author": "Jay Yeluru",
     "license": "ISC",
-    "type": "commonjs",
+    "type": "module",
     "engines": {
         "node": ">=20.0.0"
     },
@@ -53,6 +53,7 @@
         "@axe-core/playwright": "^4.11.1",
         "@eslint/js": "^10.0.1",
         "@playwright/test": "^1.58.2",
+        "@types/node": "^25.5.0",
         "allure": "^3.3.1",
         "allure-js-commons": "^3.6.0",
         "allure-playwright": "^3.6.0",
@@ -60,6 +61,8 @@
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-playwright": "^2.9.0",
         "eslint-plugin-prettier": "^5.5.5",
-        "prettier": "^3.8.1"
+        "prettier": "^3.8.1",
+        "tsx": "^4.21.0",
+        "typescript": "^5.9.3"
     }
 }
